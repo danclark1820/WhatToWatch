@@ -18,5 +18,6 @@ module Whattowatch
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    # config.frameworks -= [:active_record, :active_resource, :action_mailer] Tsrying to 
   end
 end
