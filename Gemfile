@@ -55,6 +55,8 @@ group :development, :test do
   gem 'capistrano-rails', require: false
   gem 'capistrano-rbenv'
   gem 'capistrano-db-tasks', require: false
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :development do
