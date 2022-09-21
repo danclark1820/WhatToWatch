@@ -18,6 +18,9 @@ module Whattowatch
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    # config.frameworks -= [:active_record, :active_resource, :action_mailer] Tsrying to 
+    # config.frameworks -= [:active_record, :active_resource, :action_mailer] Tsrying to
+    config.tmdb_url               = ENV['TMDB_URL']
+    config.tmdb_api_key           = ENV['TMDB_API_KEY']
+    config.tmbd_read_access_token = ENV['TMDB_READ_ACCESS_TOKEN']
   end
 end
