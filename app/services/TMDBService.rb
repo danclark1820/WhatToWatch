@@ -6,16 +6,14 @@ module TMDBService
   end
 
   class << self
-    def movie_image
-      formatted_movie_url = URL + "/movie/550?api_key=" + TOKEN
+    def movies
+      formatted_movie_url = URL + "/discover/movie?sort_by=popularity.desc&api_key=" + TOKEN
       response = Faraday.get(formatted_movie_url)
-      parsed_response = JSON.parse(response.body)
-      poster_path = parsed_response["poster_path"]
-      formatted_image_url = "https://www.themoviedb.org/t/p/w440_and_h660_face/" + poster_path
+      parsed_response = JSON.parse(response.body)["results"]
     end
 
-    def hello
-      "hello"
+    def image_url(poster_path)
+      "https://www.themoviedb.org/t/p/w440_and_h660_face/" + poster_path
     end
   end
 end

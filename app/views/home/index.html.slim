@@ -1,0 +1,2 @@
+- @movies.each do |movie|
+  = image_tag(TMDBService.image_url(movie["poster_path"]))

@@ -47,6 +47,7 @@ gem "sassc-rails"
 
 gem 'faraday'
 gem 'json'
+gem 'slim'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -60,6 +61,7 @@ group :development, :test do
   gem 'capistrano-db-tasks', require: false
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
+  gem 'pry'
 end
 
 group :development do
