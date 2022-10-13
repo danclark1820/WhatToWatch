@@ -48,6 +48,7 @@ gem "sassc-rails"
 gem 'faraday'
 gem 'json'
 gem 'slim'
+gem 'ssl_requirement', '~> 0.1.0'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
