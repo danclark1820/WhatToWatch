@@ -1,2 +1,17 @@
-- @movies.each do |movie|
-  = image_tag(TMDBService.image_url(movie["poster_path"]))
+h2 Most Popular Movies
+- @popular_movies.each do |movie|
+  - if movie["poster_path"]
+    = image_tag(TMDBService.image_url(movie["poster_path"]))
+
+h2 Highest Rated Movies
+- @highest_rated_movies.each do |movie|
+  - if movie["poster_path"]
+    = image_tag(TMDBService.image_url(movie["poster_path"]))
+
+/ h2 Most Popular Shows 
+/   - @most_popular_shows.each do |show|
+/     = image_tag(TMDBService.image_url(show["poster_path"]))
+
+/ h2 Highest Rated Shows
+/   - @highest_rated_shows.each do |show|
+/     = image_tag(TMDBService.image_url(show["poster_path"]))
