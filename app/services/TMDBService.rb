@@ -23,5 +23,13 @@ module TMDBService
         "https://www.themoviedb.org/t/p/w440_and_h660_face/" + poster_path
       end
     end
+
+    def trailers(movie_id)
+      formatted_movie_url + movie_id + "/videos"
+    end
+
+    def trailer_url(youtube_id)
+      "https://www.youtube.com/watch?v=#{youtube_id}"
+    end
   end
 end
