@@ -10,7 +10,7 @@ eagerLoadControllersFrom("controllers", application)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 // lazyLoadControllersFrom("controllers", application)
 
-let movies = document.getElementsByClassName('movie-image')
-for (let i = 0; i < movies.length; i++) {
-  console.log("Hello")
-}
+// let movies = document.getElementsByClassName('movie-image')
+// for (let i = 0; i < movies.length; i++) {
+//   console.log("Hello")
+// }

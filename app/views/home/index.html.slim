@@ -2,7 +2,8 @@ h1 FindWhatToWatch.com
 h2 Popular Movies
 - @popular_movies.each do |movie|
   - if movie["poster_path"]
-    = image_tag(TMDBService.image_url(movie["poster_path"]), alt: "popular movie " + movie["original_title"], data: { controller: "hello", id: movie["id"], overview: movie["overview"], title: movie["original_title"]  }, class: "movie-image")
+    div data={ controller: "movie", action: "click->movie#printData", id: movie["id"], overview: movie["overview"], title: movie["original_title"] }
+     = image_tag(TMDBService.image_url(movie["poster_path"]), alt: "popular movie " + movie["original_title"], data: { target: "poster" }, class: "movie-image")
 
 h2 Highest Rated Movies
 - @highest_rated_movies.each do |movie|
