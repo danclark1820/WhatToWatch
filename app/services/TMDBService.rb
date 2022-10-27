@@ -24,12 +24,20 @@ module TMDBService
       end
     end
 
-    def trailers(movie_id)
-      formatted_movie_url + movie_id + "/videos"
+    def official_trailer(movie_id)
+      videos_url = URL + "/movie/#{movie_id}/videos?api_key=" + TOKEN
+      response = Faraday.get(videos_url)
+      parsed_response = JSON.parse(response.body)["results"]
+      teaser = trailer(parsed_response)
+      trailer_url(teaser["key"])
+    end
+
+    def trailer(videos)
+      videos.find { |t| t["type"] == "Trailer" } || videos.first
     end
 
     def trailer_url(youtube_id)
-      "https://www.youtube.com/watch?v=#{youtube_id}"
+      { trailer_url: "https://www.youtube.com/watch?v=#{youtube_id}" }
     end
   end
 end

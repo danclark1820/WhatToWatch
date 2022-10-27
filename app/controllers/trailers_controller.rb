@@ -1,5 +1,11 @@
 class TrailersController < ApplicationController
   def show
-    TMDBService.trailer_url(id)
+    @trailer = TMDBService.official_trailer(params[:id])
+    render json: @trailer
+  end
+
+  private
+  def trailer_params
+    params.permit(:id)
   end
 end
