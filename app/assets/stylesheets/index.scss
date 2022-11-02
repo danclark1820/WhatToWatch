@@ -1,5 +1,9 @@
 .movie-image {
-  visibility: hidden;
+  display: block;
+}
+
+.movie-teaser-iframe {
+  display: none;
 }
 
 body {

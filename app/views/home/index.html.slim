@@ -5,9 +5,6 @@ h2 Popular Movies
     div.movie-div id="movie-div-#{movie['id']}" data={id: movie["id"], overview: movie["overview"], title: movie["original_title"] }
       = image_tag(TMDBService.image_url(movie["poster_path"]), alt: "popular movie " + movie["original_title"], class: "movie-image")
       div
-        iframe src="" title="Movie Teaser #{movie['original_title']}" class="movie-teaser-iframe" id="movie-teaser-#{movie}"
+        iframe src="" title="Movie Teaser #{movie['original_title']}" class="movie-teaser-iframe" id="movie-teaser-#{movie['id']}" data-id="#{movie['id']}"
 
-h2 Highest Rated Movies
-- @highest_rated_movies.each do |movie|
-  - if movie["poster_path"]
-    = image_tag(TMDBService.image_url(movie["poster_path"]), alt: "highest rated movie " + movie["original_title"])
+= javascript_include_tag params[:controller]
