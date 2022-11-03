@@ -37,7 +37,7 @@ module TMDBService
     end
 
     def trailer_url(youtube_id)
-      { trailer_url: "https://www.youtube.com/watch?v=#{youtube_id}" }
+      { trailer_url: "https://www.youtube.com/embed/#{youtube_id}" }
     end
   end
 end
