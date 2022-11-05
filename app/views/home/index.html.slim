@@ -1,12 +1,27 @@
 h1 FindWhatToWatch.com
-h2 Popular Movies
+= form_with method: :get do |f|
+  = f.label "Sort By"
+  = f.select :order, [["Highest", "desc"], ["Lowest", "asc"]], selected: params[:order]
+  = f.select :sort_by, [["Popularity", "popularity"], ["Vote Average", "vote_average"]], selected: params[:sort_by]
+  br
+  = f.label :vote_count
+  = f.select :vote_filter, [["At Least", :gte], ["At Most", :lte]], selected: params[:vote_filter]
+  = f.number_field :votes, value: params["votes"] || 3000
+  br
+  = f.label :rated
+  = f.select :rating_filter, [["At Least", :gte,], ["At Most", :lte]], selected: params[:rating_filter]
+  = f.select :rating, ["R", "PG-13", "PG", "G"], selected: params["rating"] || "PG-13"
+  br
+  = f.submit "Find What To Watch"
+
 - @popular_movies.each do |movie|
   - if movie["poster_path"]
     div.movie-div id="movie-div-#{movie['id']}" data={id: movie["id"], overview: movie["overview"], title: movie["original_title"] }
       = image_tag(TMDBService.image_url(movie["poster_path"]), alt: "popular movie " + movie["original_title"], class: "movie-image")
     div.movie-info id="movie-info-#{movie['id']}"
       iframe src="" title="Movie Teaser #{movie['original_title']}" class="movie-teaser-iframe" id="movie-teaser-#{movie['id']}" data-id="#{movie['id']}"
-      h3=movie["original_title"]
+      h3 = movie["original_title"]
       .movie-overview
-        =movie["overview"]
+        = movie["overview"]
+
 = javascript_include_tag params[:controller]

@@ -6,8 +6,8 @@ module TMDBService
   end
 
   class << self
-    def movies(sort_by)
-      formatted_movie_url = URL + "/discover/movie?sort_by=#{sort_by}.desc&certification_country=US&certification.gte=PG-13&vote_count.gte=3000&api_key=" + TOKEN
+    def movies(params)
+      formatted_movie_url = URL + "/discover/movie?sort_by=#{params[:sort_by]}.#{params[:order]}&certification_country=US&certification.#{params[:rating_filter]}=#{params[:rating]}&vote_count.#{params[:vote_filter]}=#{params[:vote_count]}&api_key=" + TOKEN
       response = Faraday.get(formatted_movie_url)
       parsed_response = JSON.parse(response.body)["results"]
     end
