@@ -4,7 +4,7 @@ h1 FindWhatToWatch.com
   = f.select :order, [["Highest", "desc"], ["Lowest", "asc"]], selected: params[:order]
   = f.select :sort_by, [["Popularity", "popularity"], ["Vote Average", "vote_average"]], selected: params[:sort_by]
   br
-  = f.label :vote_count
+  = f.label :votes
   = f.select :vote_filter, [["At Least", :gte], ["At Most", :lte]], selected: params[:vote_filter]
   = f.number_field :votes, value: params["votes"] || 3000
   br
@@ -23,5 +23,13 @@ h1 FindWhatToWatch.com
       h3 = movie["original_title"]
       .movie-overview
         = movie["overview"]
+      br
+      span.movie-rating
+        | Rating:
+        = "  #{movie["vote_average"]}/10"
+      span.movie-vote-count
+        | Votes:
+        = "  #{movie["vote_count"]}"
+      .movie-network
 
 = javascript_include_tag params[:controller]
