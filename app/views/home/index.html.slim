@@ -13,7 +13,9 @@ h1 FindWhatToWatch.com
   = f.select :rating, ["R", "PG-13", "PG", "G"], selected: params["rating"] || "PG-13"
   br
   = f.submit "Find What To Watch"
-
+  br
+  br
+| Tap Poster for Preview and More...
 - @popular_movies.each do |movie|
   - if movie["poster_path"]
     div.movie-div id="movie-div-#{movie['id']}" data={id: movie["id"], overview: movie["overview"], title: movie["original_title"] }
