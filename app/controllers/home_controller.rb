@@ -9,4 +9,11 @@ class HomeController < ApplicationController
                         rating_filter: params[:rating_filter] || "gte"
                     )
   end
+
+  def sitemap
+    # @hello = "Hello"
+    # respond_to do |format|
+    #   format.xml
+    # end
+  end
 end

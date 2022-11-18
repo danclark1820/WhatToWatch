@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+  get '/sitemap', to: "home#sitemap"
   resource :trailer, only: [:show]
 end
